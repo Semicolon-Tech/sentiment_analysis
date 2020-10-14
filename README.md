@@ -17,7 +17,7 @@ Analysis and Comparison of sentiments from product reviews
 
 # Credits
 Collaborators for this repositories:
-1. [wizardcalidad](https://github.com/wizardcalidad/sentiment_analysis)
+1. [wizardcalidad](https://github.com/wizardcalidad/sentiment-analsis-imdb)
 2. [cisco00](https://github.com/cisco00/Sentimental-Analysis-on-threat)
 3. [dhrey112](https://github.com/dhrey112/sentimentAnalysis-5_Naive_Bayes_model)
 4. [abbey-commit](https://github.com/Abbey-commit/Movie-Review-with-Naive-Bayes-Algorithms-and-Cross-validation)
