@@ -3,19 +3,21 @@ import string
 import random
 
 import numpy as np
+from sklearn.metrics import accuracy_score
 from tqdm.notebook import tqdm
 from sklearn.base import TransformerMixin
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import GaussianNB, CategoricalNB
 
 import nltk
-from nltk import word_tokenize
+from nltk import word_tokenize, WordNetLemmatizer
 from nltk.stem import WordNetLemmatizer
 
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
 
-wordnet_lemmatizer = WordNetLemmatizer()
+wordnet_lemmatizer: WordNetLemmatizer = WordNetLemmatizer()
+
 
 def clean_text(text: str) -> str:
     # removes upper cases
@@ -25,18 +27,19 @@ def clean_text(text: str) -> str:
     for char in string.punctuation:
         text = text.replace(char, "")
     
-    #lematize the words and join back into string text
+    # lemmatize the words and join back into string text
     text = " ".join([wordnet_lemmatizer.lemmatize(word) for word in word_tokenize(text)])
     
     return text
 
 
 class DenseTransformer(TransformerMixin):
-    def fit(self, X, y=None, **fit_params):
+    def fit(self, x, y=None, **fit_params):
         return self
 
-    def transform(self, X, y=None, **fit_params):
-        return X.todense()
+    @staticmethod
+    def transform(x, y=None, **fit_params):
+        return x.todense()
     
     def __str__(self):
         return "DenseTransformer()"
@@ -46,18 +49,20 @@ class DenseTransformer(TransformerMixin):
     
     
 class CleanTextTransformer(TransformerMixin):
-    def fit(self, X, y=None, **fit_params):
+    def fit(self, x, y=None, **fit_params):
         return self
     
-    def transform(self, X, y=None, **fit_params):
-        return np.vectorize(clean_text)(X)
-    
+    @staticmethod
+    def transform(x, y=None, **fit_params):
+        return np.vectorize(clean_text)(x)
+
     def __str__(self):
         return 'CleanTextTransformer()'
-    
+
     def __repr__(self):
         return self.__str__()
-    
+
+
 def load_imdb_sentiment_analysis_dataset(imdb_data_path, seed=123):
     """Loads the IMDb movie reviews sentiment analysis dataset.
 
@@ -111,14 +116,64 @@ def load_imdb_sentiment_analysis_dataset(imdb_data_path, seed=123):
     return ((np.array(train_texts), np.array(train_labels)),
             (np.array(test_texts), np.array(test_labels)))
 
+
+class CategoricalBatchNB(TransformerMixin):
+    def __init__(self, batch_size, classes, *args, **kwargs):
+        self._batch_size = batch_size
+        self._classes = classes
+        self._args = args
+        self._kwargs = kwargs
+        self._model = CategoricalNB(*args, **kwargs)
+
+    def fit(self, x, y, **fit_params):
+        batch_size = self._batch_size
+        self._model = CategoricalNB(*self._args, **self._kwargs)
+
+        for index in tqdm(range(batch_size, x.shape[0] + batch_size, batch_size)):
+            self._model.partial_fit(
+                x[index - batch_size:index, :].toarray(),
+                y[index - batch_size:index],
+                classes=self._classes
+            )
+        return self
+
+    @staticmethod
+    def transform(x, y=None, **fit_params):
+        return x
+
+    def predict(self, x):
+        batch_size = self._batch_size
+        predictions = []
+        for index in tqdm(range(batch_size, x.shape[0] + batch_size, batch_size)):
+            predictions.extend(
+                self._model.predict(
+                    x[index - batch_size:index, :].toarray()
+                ).tolist()
+            )
+        return np.array(predictions).ravel()
+
+    def score(self, x, y):
+        y_pred = self.predict(x)
+        return accuracy_score(y, y_pred)
+
+    def __str__(self):
+        return "CategoricalBatchNB()"
+
+    def __repr__(self):
+        return self.__str__()
+
+
 class GaussianBatchNB(TransformerMixin):
     def __init__(self, batch_size, classes, *args, **kwargs):
         self._batch_size = batch_size
         self._classes = classes
+        self._args = args
+        self._kwargs = kwargs
         self._model = GaussianNB(*args, **kwargs)
         
     def fit(self, x, y, **fit_params):
         batch_size = self._batch_size
+        self._model = GaussianNB(*self._args, **self._kwargs)
         
         for index in tqdm(range(batch_size, x.shape[0]+batch_size, batch_size)):
             self._model.partial_fit(
@@ -136,12 +191,12 @@ class GaussianBatchNB(TransformerMixin):
         batch_size = self._batch_size
         predictions = []
         for index in tqdm(range(batch_size, x.shape[0]+batch_size, batch_size)):
-            predictions.append(
+            predictions.extend(
                 self._model.predict(
                     x[index-batch_size:index, :].toarray()
-                )
+                ).tolist()
             )
-        return np.array(predictions).flatten()
+        return np.array(predictions).ravel()
     
     def score(self, x, y):
         y_pred = self.predict(x)

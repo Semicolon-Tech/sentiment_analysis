@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5c5e964-9a27-4191-802b-1e98f4bb4c3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sentiment_analysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sentiment_analysis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-BernoulliNB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment-Analysis-with-BernoulliNB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-Categorical.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-ComplementNB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment-Analysis-with-ComplementNB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-Gaussian.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-MultinomialNB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment-Analysis-with-MultinomialNB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imdb_labelled.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/categorical_naive_bayes_with_count_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/categorical_naive_bayes_with_count_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/gaussian_naive_bayes_with_count_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/gaussian_naive_bayes_with_count_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_count_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_count_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_tfidf_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_tfidf_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis-with-bernoulliNB (2).ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +43,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -43,11 +54,17 @@
       <option name="presentableId" value="Default" />
       <updated>1602692442118</updated>
       <workItem from="1605872087476" duration="1320000" />
-      <workItem from="1605874848748" duration="1867000" />
+      <workItem from="1605874848748" duration="10214000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="13" key="SettingsEditor" timestamp="1605899177600">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="13" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1605899177600" />
   </component>
 </project>
