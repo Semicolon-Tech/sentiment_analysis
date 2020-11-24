@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f5c5e964-9a27-4191-802b-1e98f4bb4c3b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-CategoricalNB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment-Analysis-with-CategoricalNB.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/categorical_naive_bayes_with_count_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/categorical_naive_bayes_with_count_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-ComplementNB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment-Analysis-with-ComplementNB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment-Analysis-with-MultinomialNB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment-Analysis-with-MultinomialNB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/complement_naive_bayes_with_count_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/complement_naive_bayes_with_count_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/complement_naive_bayes_with_tfidf_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/complement_naive_bayes_with_tfidf_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_count_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_count_vectorizer.joblib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_tfidf_vectorizer.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/models/multinomial_naive_bayes_with_tfidf_vectorizer.joblib" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +46,8 @@
       <option name="presentableId" value="Default" />
       <updated>1602692442118</updated>
       <workItem from="1605872087476" duration="1320000" />
-      <workItem from="1605874848748" duration="12274000" />
+      <workItem from="1605874848748" duration="12466000" />
+      <workItem from="1606143372543" duration="762000" />
     </task>
     <servers />
   </component>
